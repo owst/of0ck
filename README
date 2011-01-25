@@ -1,0 +1,17 @@
+Of0ck
+=====
+
+Here's a quick twist on the classic esoteric programming language Brainf*ck.
+
+Of0ck uses modified input symbols:
+
+oO == > Increment the pointer.
+oo == < Decrement the pointer.
+0O == + Increment the byte at the pointer.
+0o == - Decrement the byte at the pointer.
+Oo == . Output the byte at the pointer.
+OO == , Input a byte and store it in the byte at the pointer.
+O0 == [ Jump forward past the matching ] if the byte at the pointer is zero.
+o0 == ] Jump backward to the matching [ unless the byte at the pointer is zero.
+
+example.html allows for code input and execution, and BF->Of0ck conversion.
