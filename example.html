@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Of0ck Example
+        </title>
+        <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="of0ck.js"></script>
+        <script>
+            function go() {
+                var input = $("#program").val();
+                var stdin = $("#input").val();
+                var output = "no input";
+
+                if (input != undefined && input != "") {
+                    try {
+                        output = interpret(input, stdin);
+                    } catch (er) {
+                        alert("Error: " + er);
+                        return;
+                    }
+                }
+
+                $("#output").val(output);
+            }
+
+            function doTranslate() {
+                var bf = $("#toTranslate").val();
+                $("#toTranslate").val(translateBfToOf0ck(bf));
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            Any lines beginning with * are treated as comments and all
+            whitespace is insignificant.<br/>
+            As an example, a program that reads its input, reverses it and
+            prints to the output looks like: <code>OOO0oOOOo0ooO0Ooooo0</code>
+            nice, eh? :)
+        </p>
+        <p>
+        Program:<br/><textarea id="program"></textarea><br/>
+        Input:<br/><textarea id="input"></textarea><br/>
+        <input type="submit" value="Go!" onclick="go()"/><span
+            id="info"></span><br/>
+        Output:<br/><textarea id="output"></textarea><br/>
+        </p>
+        <p>
+            Got a BF program, but want to execute it using Of0ck? No problem:
+            paste the BF into the field below, hit translate and equivalent
+            Of0ck will appear!<br/>
+            Translate BF to Of0ck: <textarea id="toTranslate"></textarea><br/>
+            <br/>
+            <input type="submit" value="Translate" onclick="doTranslate()"/>
+        </p>
+    </body>
+</html>
